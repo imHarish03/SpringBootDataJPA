@@ -24,7 +24,11 @@ public class SpringBootDataJPAApplication implements CommandLineRunner {
 	@Override
 	public void run(String... args) throws Exception {
 
-		embeddableService.createCompany();
+		// embeddableService.createCompany();
+
+		// oneToOneService.createUser();
+
+		oneToOneService.loadUser();
 	}
 
 }

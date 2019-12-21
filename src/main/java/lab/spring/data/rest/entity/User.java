@@ -16,9 +16,7 @@ import javax.persistence.Table;
 public class User {
 
 	@Id
-
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-
 	@Column(name = "ID")
 	private int id;
 
@@ -28,9 +26,7 @@ public class User {
 	@Column(name = "FullName")
 	private String fullName;
 
-	@OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-
-	@JoinColumn(name = "LoginID")
+	@OneToOne(cascade = CascadeType.ALL, mappedBy = "user")
 	private Login login;
 
 	public User() {
@@ -72,6 +68,11 @@ public class User {
 
 	public void setLogin(Login login) {
 		this.login = login;
+	}
+
+	@Override
+	public String toString() {
+		return "User [id=" + id + ", userName=" + userName + ", fullName=" + fullName + ", login=" + login + "]";
 	}
 
 }

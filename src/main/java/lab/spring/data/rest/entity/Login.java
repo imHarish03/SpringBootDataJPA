@@ -29,6 +29,11 @@ public class Login {
 
 	}
 
+	public Login(String password, User user) {
+		this.password = password;
+		this.user = user;
+	}
+
 	public int getId() {
 		return id;
 	}
