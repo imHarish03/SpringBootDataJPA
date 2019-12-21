@@ -1,13 +1,18 @@
 package lab.spring.data.rest.entity;
 
+import java.util.Set;
+
 import javax.persistence.AttributeOverride;
 import javax.persistence.AttributeOverrides;
+import javax.persistence.CollectionTable;
 import javax.persistence.Column;
+import javax.persistence.ElementCollection;
 import javax.persistence.Embedded;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.Table;
 
 @Entity
@@ -18,7 +23,12 @@ public class Company {
 	private Integer id;
 	private String name;
 
-	private String address;
+	@ElementCollection
+	@CollectionTable(name = "company_location", joinColumns = @JoinColumn(name = "CompanyID"))
+	@AttributeOverrides({ @AttributeOverride(name = "addressLine1", column = @Column(name = "house_number")),
+			@AttributeOverride(name = "addressLine2", column = @Column(name = "street")) })
+	private Set<Address> address;
+
 	private String phone;
 
 	@Embedded
@@ -31,7 +41,7 @@ public class Company {
 
 	}
 
-	public Company(String name, String address, String phone, ContactPerson contactPerson) {
+	public Company(String name, Set<Address> address, String phone, ContactPerson contactPerson) {
 		this.name = name;
 		this.address = address;
 		this.phone = phone;
@@ -54,11 +64,11 @@ public class Company {
 		this.name = name;
 	}
 
-	public String getAddress() {
+	public Set<Address> getAddress() {
 		return address;
 	}
 
-	public void setAddress(String address) {
+	public void setAddress(Set<Address> address) {
 		this.address = address;
 	}
 

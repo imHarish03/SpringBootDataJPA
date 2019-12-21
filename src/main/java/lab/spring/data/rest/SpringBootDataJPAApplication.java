@@ -25,7 +25,6 @@ public class SpringBootDataJPAApplication implements CommandLineRunner {
 	public void run(String... args) throws Exception {
 
 		embeddableService.createCompany();
-		System.out.println("Service Started Successfully");
 	}
 
 }
