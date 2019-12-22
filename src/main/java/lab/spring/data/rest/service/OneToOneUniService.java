@@ -33,6 +33,10 @@ public class OneToOneUniService {
 		try {
 			List<User> userList = userDAO.findAll();
 			userList.forEach(System.out::println);
+
+			Login login = loginDAO.findById(1).orElse(null);
+			System.out.println(login);
+
 		} catch (Exception e) {
 			System.out.println(e);
 		}
