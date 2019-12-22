@@ -44,9 +44,4 @@ public class ContactPerson {
 		this.phone = phone;
 	}
 
-	@Override
-	public String toString() {
-		return "ContactPerson [firstName=" + firstName + ", lastName=" + lastName + ", phone=" + phone + "]";
-	}
-
 }

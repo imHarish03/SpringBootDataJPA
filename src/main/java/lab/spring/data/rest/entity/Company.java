@@ -36,7 +36,7 @@ public class Company {
 	 * Moreover, When you’re using an Embeddable type with Element Collection, you
 	 * can use the @AttributeOverrides and @AttributeOverride annotations to
 	 * override/customize the fields of the embeddable type.
-	 */	
+	 */
 	@ElementCollection
 	@CollectionTable(name = "company_location", joinColumns = @JoinColumn(name = "CompanyID"))
 	@AttributeOverrides({ @AttributeOverride(name = "addressLine1", column = @Column(name = "house_number")),
@@ -100,12 +100,6 @@ public class Company {
 
 	public void setContactPerson(ContactPerson contactPerson) {
 		this.contactPerson = contactPerson;
-	}
-
-	@Override
-	public String toString() {
-		return "Company [id=" + id + ", name=" + name + ", address=" + address + ", phone=" + phone + ", contactPerson="
-				+ contactPerson + "]";
 	}
 
 }

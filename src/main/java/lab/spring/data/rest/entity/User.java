@@ -1,5 +1,8 @@
 package lab.spring.data.rest.entity;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -7,7 +10,7 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
@@ -26,8 +29,12 @@ public class User {
 	@Column(name = "FullName")
 	private String fullName;
 
-	@OneToOne(cascade = CascadeType.ALL, mappedBy = "user")
+	@OneToOne(mappedBy = "user", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
 	private Login login;
+
+	@OneToMany(mappedBy = "user", cascade = { CascadeType.DETACH, CascadeType.MERGE, CascadeType.PERSIST,
+			CascadeType.REFRESH }, fetch = FetchType.EAGER)
+	private List<EmergencyInfo> emergencyInfo;
 
 	public User() {
 
@@ -70,9 +77,22 @@ public class User {
 		this.login = login;
 	}
 
-	@Override
-	public String toString() {
-		return "User [id=" + id + ", userName=" + userName + ", fullName=" + fullName + ", login=" + login + "]";
+	public List<EmergencyInfo> getEmergencyInfo() {
+		return emergencyInfo;
+	}
+
+	public void setEmergencyInfo(List<EmergencyInfo> emergencyInfo) {
+		this.emergencyInfo = emergencyInfo;
+	}
+
+	public void addEmergencyInfo(EmergencyInfo tempEmergencyInfo) {
+
+		if (this.emergencyInfo == null) {
+			this.emergencyInfo = new ArrayList<EmergencyInfo>();
+		}
+		this.emergencyInfo.add(tempEmergencyInfo);
+
+		tempEmergencyInfo.setUser(this);
 	}
 
 }

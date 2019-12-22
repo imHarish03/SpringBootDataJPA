@@ -21,8 +21,8 @@ public class OneToOneUniService {
 
 	public void createUser() {
 
-		User user = new User("mithra", "m");
-		Login login = new Login("Admins");
+		User user = new User("Gomathi", "VM.Gomathi");
+		Login login = new Login("GHOAMRAI");
 
 		login.setUser(user);
 
