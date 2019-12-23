@@ -14,9 +14,9 @@ public class CompositeService {
 	EmployeeDAO employeeDAO;
 
 	public void createEmployee() {
-		EmployeeAddress address = new EmployeeAddress("Crosscut", "56168");
+		// EmployeeAddress address = new EmployeeAddress("Crosscut1", "561628");
 
-		Employee employee = new Employee(address, "Hari");
+		Employee employee = new Employee("1st Street", "650061", "Hari");
 
 		employeeDAO.save(employee);
 

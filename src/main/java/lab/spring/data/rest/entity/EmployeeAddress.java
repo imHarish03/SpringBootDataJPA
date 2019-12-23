@@ -3,11 +3,7 @@ package lab.spring.data.rest.entity;
 import java.io.Serializable;
 
 import javax.persistence.Embeddable;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
 
-@Embeddable
 public class EmployeeAddress implements Serializable {
 	private String streetName;
 	private String zipCode;
