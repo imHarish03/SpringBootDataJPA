@@ -5,7 +5,6 @@ import org.springframework.stereotype.Service;
 
 import lab.spring.data.rest.dao.EmployeeDAO;
 import lab.spring.data.rest.entity.Employee;
-import lab.spring.data.rest.entity.EmployeeAddress;
 
 @Service
 public class CompositeService {

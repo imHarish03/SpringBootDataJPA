@@ -2,8 +2,6 @@ package lab.spring.data.rest.entity;
 
 import java.io.Serializable;
 
-import javax.persistence.Embeddable;
-
 public class EmployeeAddress implements Serializable {
 	private String streetName;
 	private String zipCode;
