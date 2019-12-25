@@ -7,6 +7,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 import lab.spring.data.rest.service.CompositeService;
 import lab.spring.data.rest.service.EmbeddableService;
+import lab.spring.data.rest.service.ManyToManyService;
 import lab.spring.data.rest.service.ManyToOneService;
 import lab.spring.data.rest.service.OneToManyService;
 import lab.spring.data.rest.service.OneToOneUniService;
@@ -29,6 +30,9 @@ public class SpringBootDataJPAApplication implements CommandLineRunner {
 	@Autowired
 	private ManyToOneService manyToOneService;
 
+	@Autowired
+	private ManyToManyService manyToManyService;
+
 	public static void main(String[] args) {
 		SpringApplication.run(SpringBootDataJPAApplication.class, args);
 	}
@@ -45,9 +49,11 @@ public class SpringBootDataJPAApplication implements CommandLineRunner {
 		// oneToManyService.getUser();
 
 		// compositeService.createEmployee();
+		// manyToOneService.getEmergencyInfo();
 
-		manyToOneService.getEmergencyInfo();
-
+		// manyToManyService.createStudent();
+		// manyToManyService.insertNewCourseForStudent();
+		manyToManyService.addExistingCourseForExistingStudent();
 	}
 
 }
