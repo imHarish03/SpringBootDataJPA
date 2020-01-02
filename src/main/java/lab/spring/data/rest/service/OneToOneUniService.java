@@ -29,7 +29,7 @@ public class OneToOneUniService {
 		loginDAO.save(login);
 	}
 
-	public void loadUser() {
+	public void loadUserList() {
 		try {
 			List<User> userList = userDAO.findAll();
 			userList.forEach(System.out::println);
@@ -41,5 +41,12 @@ public class OneToOneUniService {
 			System.out.println(e);
 		}
 	}
+
+	public User loadUser(int id) {
+		return null;
+	}
+	
+	
+	
 
 }

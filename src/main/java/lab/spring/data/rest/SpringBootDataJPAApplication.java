@@ -53,7 +53,7 @@ public class SpringBootDataJPAApplication implements CommandLineRunner {
 
 		// manyToManyService.createStudent();
 		// manyToManyService.insertNewCourseForStudent();
-		manyToManyService.addExistingCourseForExistingStudent();
+		// manyToManyService.addExistingCourseForExistingStudent();
 	}
 
 }
